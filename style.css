@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.container {
+	width: 50%;
+	margin: 50px auto;
+	position: relative;
+}
+.container input {
+	height: 20px;
+	width: 100px;
+}
+.container .sc {
+	display: none;
+	position: absolute;
+	top: 24px;
+	left: 0px;
+	width: 100px;
+	border: 1px solid gray;
+	border-top-style: none;
+}
+
+.container .sc p {
+	width: 100%;
+	padding: 2px 0;
+	border-bottom: 1px solid gray;
+
+}
+.container .sc p:hover {
+	background-color: gray;
+	color: white;
+}
