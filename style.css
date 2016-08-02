@@ -11,6 +11,10 @@
 	height: 20px;
 	width: 100px;
 }
+.container input:focus {
+	border: 2px solid blue;
+	border-radius: 2px;
+}
 .container .sc {
 	display: none;
 	position: absolute;
@@ -27,7 +31,13 @@
 	border-bottom: 1px solid gray;
 
 }
-.container .sc p:hover {
+.container .sc .selected {
 	background-color: gray;
 	color: white;
 }
+
+
+a:link{color:black;}
+a:visited{color:red;}
+a:hover{color:blue;}
+a:active{color:green;}
