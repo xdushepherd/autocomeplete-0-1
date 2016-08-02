@@ -35,10 +35,10 @@
 		var input = document.getElementById(options.id);
 		var value = input.value;
 
+
 		//TODO: 从options中获取source
 		var source = options.source || ['java','javascript','ruby','css','html','python'];
 		input.cache = {a:1};
-		console.log(input.cache)
 		//建立自动补全项目容器
 		createSuggestionContaioner(input);
 
@@ -47,9 +47,8 @@
 			var suggestions = [];
 			var items = [];
 			var sc = this.sc;
-
 			function getSuggestions() {
-				if ( value in input.cache) { return; }
+				if ( input.cache && value in input.cache) { return; }
 				for (var i = 0; i < source.length; i++) {
 					s_item = source[i].toLowerCase();
 					if (value != "" && ~s_item.indexOf(value.toLowerCase())) {
@@ -73,6 +72,7 @@
 			if (e.keyCode != 38 && e.keyCode != 40 && e.keyCode != 9 && e.keyCode != 13 ) {
 				getSuggestions();
 				render_suggestion();
+				this.last_val = value;
 			}
 		}
 
@@ -96,6 +96,9 @@
 						selected.className = selected.className.replace(' selected','');
 						next.className += " selected";
 						this.value = next.getAttribute('data-val')
+					}else{
+						selected.className = selected.className.replace(" selected","");
+						this.value = this.last_val;
 					}
 
 				}
